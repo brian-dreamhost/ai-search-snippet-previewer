@@ -40,6 +40,35 @@ export default function App() {
     }, 50);
   };
 
+  const fillTestData = () => {
+    setTitle('How to Improve Core Web Vitals: A Complete Guide for 2025');
+    setUrl('https://www.dreamhost.com/blog/improve-core-web-vitals/');
+    setContent(`Core Web Vitals are a set of three specific page experience metrics that Google uses as ranking signals: Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS). As of 2024, these metrics directly influence search rankings for both mobile and desktop results.
+
+What are the three Core Web Vitals metrics?
+
+Largest Contentful Paint (LCP) measures how long it takes for the largest visible element on the page to fully render. Google recommends an LCP of 2.5 seconds or less for a good user experience. The most common causes of poor LCP include unoptimized images, render-blocking JavaScript, and slow server response times.
+
+Interaction to Next Paint (INP) replaced First Input Delay (FID) in March 2024 as the responsiveness metric. INP measures the latency of all user interactions throughout the page lifecycle, not just the first one. A good INP score is 200 milliseconds or less.
+
+Cumulative Layout Shift (CLS) quantifies how much the page layout shifts unexpectedly during loading. A CLS score below 0.1 is considered good. Common causes of layout shift include images without dimensions, dynamically injected content, and web fonts causing FOIT or FOUT.
+
+How do Core Web Vitals affect SEO rankings?
+
+According to a study by Searchmetrics, pages that pass all three Core Web Vitals thresholds are 24% less likely to be abandoned by users. Google has confirmed that page experience signals, including Core Web Vitals, are used as a tiebreaker when multiple pages have similar content relevance.
+
+Here are 5 proven strategies to improve your Core Web Vitals scores:
+
+1. Optimize images by using modern formats like WebP or AVIF, implementing lazy loading, and always specifying width and height attributes.
+2. Minimize render-blocking resources by deferring non-critical JavaScript and inlining critical CSS.
+3. Use a Content Delivery Network (CDN) to reduce server response times and improve LCP globally.
+4. Reserve space for dynamic content and ads to prevent unexpected layout shifts.
+5. Break up long JavaScript tasks into smaller chunks to improve INP responsiveness.
+
+Sites hosted on DreamHost benefit from built-in server-side caching, HTTP/2 support, and SSD storage, all of which contribute to faster LCP times. DreamHost's managed WordPress hosting includes automatic performance optimizations that can improve Core Web Vitals scores by up to 40% compared to unoptimized configurations.`);
+    setAnalysis(null);
+  };
+
   const scoreTier = analysis ? getScoreTier(analysis.score) : null;
 
   const previewProps = {
@@ -51,7 +80,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-abyss text-white bg-glow bg-grid">
-      <div className="max-w-6xl mx-auto px-4 py-12 relative z-10 animate-fadeIn">
+      <div className="max-w-[1600px] mx-auto px-4 py-12 relative z-10 animate-fadeIn">
 
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm text-galactic">
@@ -82,6 +111,12 @@ export default function App() {
           <p className="text-sm text-cloudy">
             <strong className="text-tangerine">Simulated previews only.</strong> These previews are generated from your content&apos;s structure — they do not reflect how any AI system will actually respond. Real AI results depend on query context, real-time web crawling, and proprietary ranking algorithms. Use these previews as a content quality guide, not a literal prediction.
           </p>
+        </div>
+
+        <div className="flex justify-end mb-4">
+          <button type="button" onClick={fillTestData}
+            className="px-3 py-1.5 text-xs font-mono bg-prince/20 text-prince border border-prince/30 rounded hover:bg-prince/30 transition-colors focus:outline-none focus:ring-2 focus:ring-prince focus:ring-offset-2 focus:ring-offset-abyss"
+          >Fill Test Data</button>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -236,7 +271,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-metal/30 mt-16">
-        <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="max-w-[1600px] mx-auto px-4 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-galactic">
             <p>AI Search Snippet Previewer — DreamHost Marketing Tools</p>
             <a
